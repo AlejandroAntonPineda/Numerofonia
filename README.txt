@@ -1,3 +1,3 @@
-La numerofonía de Aschero universliza el aprendizaje de la música, simplificándola.
-Los colores sustituyen al pentagrama y las claves.
-Los cuadrados unidos o divididos sustituyen a las figuras ritmicas.
+Aschero's Numerophony universalizes the learning of music by simplifying it.
+Colours replace staves and clefs.
+The united or divided squares replace the rhythmic figures.
