@@ -39,6 +39,8 @@ SQUARE_SIZE = 50
 square_pos = (screen_size[0] - 1340, 260)
 square_marg = pygame.draw.rect(screen, BLACK, pygame.Rect(square_pos, (SQUARE_SIZE, SQUARE_SIZE)), 2)
 LIG_SIZE = (20, 13)
+OCT_SIZE = 15
+
 square_positions = []
 
 
@@ -227,8 +229,7 @@ while True:
             if event.key == pygame.K_1:
                 Current_color = RED
                 if minus_count == 0:
-                    square = pygame.draw.rect(screen, Current_color, pygame.Rect
-                                              (square_pos, (SQUARE_SIZE, SQUARE_SIZE)))
+                    pygame.draw.rect(screen, Current_color, pygame.Rect(square_pos, (SQUARE_SIZE, SQUARE_SIZE)))
                     square_positions.append(square_pos)
                     pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
                     pygame.display.update()
@@ -467,6 +468,16 @@ while True:
                 pygame.display.update()
                 minus_count = 0
 
+            if event.key == pygame.K_o:
+                pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
+                square_pos = (square_pos[0] + 17, square_pos[1] - 16)
+                pygame.draw.rect(screen, Current_color, pygame.Rect(square_pos, (OCT_SIZE, OCT_SIZE)))
+                square_positions.append(square_pos)
+                pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], OCT_SIZE, OCT_SIZE), 2)
+                square_pos = (square_pos[0] - 17, square_pos[1] + 16)
+                pygame.display.update()
+                minus_count = 0
+
             if event.key == pygame.K_MINUS:
                 if minus_count == 0:
                     pygame.draw.line(screen, BLACK, (square_pos[0] + SQUARE_SIZE / 2, square_pos[1]),
@@ -499,7 +510,7 @@ while True:
             if event.key == pygame.K_BACKSPACE:
                 if pygame.Rect.colliderect(square_marg, rect_left):
                     pygame.draw.rect(screen, (255, 255, 255),
-                                     (square_pos[0], square_pos[1], SQUARE_SIZE + 20, SQUARE_SIZE))
+                                     (square_pos[0], square_pos[1] - 35, SQUARE_SIZE + 20, SQUARE_SIZE + 35))
                     square_pos = (square_pos[0] - 70, square_pos[1])
                     square_marg = pygame.draw.rect(screen, draw_outline,
                                                    (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
