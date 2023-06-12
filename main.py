@@ -182,7 +182,9 @@ pygame.time.set_timer(BLINK_EVENT, BLINK_INTERVAL)
 
 # Contador
 minus_count = 0
-esc_contador = 0
+oct_count = 0
+
+
 # Definir límites arriba
 start_line_2 = screen_size[0] - 200, 320
 end_line_2 = screen_size[0] - 1400, 320
@@ -469,14 +471,46 @@ while True:
                 minus_count = 0
 
             if event.key == pygame.K_o:
-                pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
-                square_pos = (square_pos[0] + 17, square_pos[1] - 16)
-                pygame.draw.rect(screen, Current_color, pygame.Rect(square_pos, (OCT_SIZE, OCT_SIZE)))
-                square_positions.append(square_pos)
-                pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], OCT_SIZE, OCT_SIZE), 2)
-                square_pos = (square_pos[0] - 17, square_pos[1] + 16)
-                pygame.display.update()
-                minus_count = 0
+                if minus_count == 0:
+                    pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
+                    square_pos = (square_pos[0] + 17, square_pos[1] - 16)
+                    pygame.draw.rect(screen, Current_color, pygame.Rect(square_pos, (OCT_SIZE, OCT_SIZE)))
+                    square_positions.append(square_pos)
+                    pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], OCT_SIZE, OCT_SIZE), 2)
+                    square_pos = (square_pos[0] - 17, square_pos[1] + 16)
+                    pygame.display.update()
+                elif minus_count == 1:
+                    pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
+                    square_pos = (square_pos[0] + 7, square_pos[1] - 16)
+                    pygame.draw.rect(screen, Current_color, pygame.Rect(square_pos, (OCT_SIZE, OCT_SIZE)))
+                    square_positions.append(square_pos)
+                    pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], OCT_SIZE, OCT_SIZE), 2)
+                    square_pos = (square_pos[0] - 7, square_pos[1] + 16)
+                    pygame.display.update()
+                    minus_count += 1
+                elif minus_count == 2:
+                    pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
+                    square_pos = (square_pos[0] + 30, square_pos[1] - 16)
+                    pygame.draw.rect(screen, Current_color, pygame.Rect(square_pos, (OCT_SIZE, OCT_SIZE)))
+                    square_positions.append(square_pos)
+                    pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], OCT_SIZE, OCT_SIZE), 2)
+                    square_pos = (square_pos[0] - 30, square_pos[1] + 16)
+                    pygame.display.update()
+                    minus_count += 1
+                elif minus_count == 3:
+                    pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
+                    square_pos = (square_pos[0] + 7, square_pos[1] - 16)
+                    pygame.draw.rect(screen, WHITE, pygame.Rect(square_pos, (OCT_SIZE, OCT_SIZE)))
+                    square_positions.append(square_pos)
+                    pygame.draw.rect(screen, WHITE, (square_pos[0], square_pos[1], OCT_SIZE, OCT_SIZE), 2)
+                    square_pos = (square_pos[0] - 7, square_pos[1] + 16)
+                    pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
+                    square_pos = (square_pos[0] + 30, square_pos[1] - 16)
+                    pygame.draw.rect(screen, Current_color, pygame.Rect(square_pos, (OCT_SIZE, OCT_SIZE)))
+                    square_positions.append(square_pos)
+                    pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], OCT_SIZE, OCT_SIZE), 2)
+                    square_pos = (square_pos[0] - 30, square_pos[1] + 16)
+                    pygame.display.update()
 
             if event.key == pygame.K_MINUS:
                 if minus_count == 0:
