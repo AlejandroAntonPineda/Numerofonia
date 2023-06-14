@@ -44,6 +44,7 @@ SQUARE_SIZE = 50
 square_pos = (screen_size[0] - 1340, 260)
 square_marg = pygame.draw.rect(screen, BLACK, pygame.Rect(square_pos, (SQUARE_SIZE, SQUARE_SIZE)), 2)
 LIG_SIZE = (20, 13)
+LIG_SIZE_2 = (70, 13)
 OCT_SIZE = 15
 square_positions = []
 # Fuentes
@@ -181,6 +182,7 @@ pygame.time.set_timer(BLINK_EVENT, BLINK_INTERVAL)
 # Contador
 minus_count = 0
 oct_count = 0
+comma_count = 0
 # Definir límites arriba
 start_line_2 = screen_size[0] - 200, 320
 end_line_2 = screen_size[0] - 1400, 320
@@ -453,17 +455,46 @@ while True:
                                      (square_pos[0] + SQUARE_SIZE / 2, square_pos[1] + SQUARE_SIZE - 2), 2)
                     pygame.display.update()
 
+            if event.key == pygame.K_0:
+                if minus_count == 0:
+                    pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
+                    square_pos = (square_pos[0] + 70, square_pos[1])
+                    pygame.display.update()
+                if minus_count == 1:
+                    square_pos = (square_pos[0] + 25, square_pos[1])
+                    pygame.draw.rect(screen, BLACK, pygame.Rect(square_pos, (SQUARE_SIZE / 2, SQUARE_SIZE)), 2)
+                    square_pos = (square_pos[0] - 25, square_pos[1])
+                    square_positions.append(square_pos)
+                    pygame.draw.line(screen, BLACK, (square_pos[0] + SQUARE_SIZE / 2, square_pos[1]),
+                                     (square_pos[0] + SQUARE_SIZE / 2, square_pos[1] + SQUARE_SIZE - 2), 2)
+                    square_pos = (square_pos[0] + 70, square_pos[1])
+                    pygame.display.update()
+
             if event.key == pygame.K_COMMA:
-                pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
-                square_pos = (square_pos[0] + 50, square_pos[1] + 35)
-                pygame.draw.rect(screen, Current_color, pygame.Rect(square_pos, LIG_SIZE))
-                pygame.display.flip()
-                pygame.draw.line(screen, BLACK, square_pos, (square_pos[0] + LIG_SIZE[0], square_pos[1]), 2)
-                pygame.draw.line(screen, BLACK, (square_pos[0], square_pos[1] + LIG_SIZE[1]),
-                                 (square_pos[0] + LIG_SIZE[0], square_pos[1] + LIG_SIZE[1]), 2)
-                square_pos = (square_pos[0] + 20, square_pos[1] - 35)
-                pygame.display.update()
-                minus_count = 0
+                if comma_count == 0:
+                    pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
+                    square_pos = (square_pos[0] + 50, square_pos[1] + 35)
+                    pygame.draw.rect(screen, Current_color, pygame.Rect(square_pos, LIG_SIZE))
+                    pygame.display.flip()
+                    pygame.draw.line(screen, BLACK, square_pos, (square_pos[0] + LIG_SIZE[0], square_pos[1]), 2)
+                    pygame.draw.line(screen, BLACK, (square_pos[0], square_pos[1] + LIG_SIZE[1]),
+                                     (square_pos[0] + LIG_SIZE[0], square_pos[1] + LIG_SIZE[1]), 2)
+                    square_pos = (square_pos[0] + 20, square_pos[1] - 35)
+                    pygame.display.update()
+                    minus_count = 0
+                    oct_count = 0
+                    comma_count += 1
+                elif comma_count == 1:
+                    square_pos = (square_pos[0], square_pos[1] + 35)
+                    pygame.draw.rect(screen, Current_color, pygame.Rect(square_pos, LIG_SIZE_2))
+                    pygame.display.flip()
+                    pygame.draw.line(screen, BLACK, square_pos, (square_pos[0] + LIG_SIZE_2[0], square_pos[1]), 2)
+                    pygame.draw.line(screen, BLACK, (square_pos[0], square_pos[1] + LIG_SIZE[1]),
+                                     (square_pos[0] + LIG_SIZE_2[0], square_pos[1] + LIG_SIZE[1]), 2)
+                    square_pos = (square_pos[0] + 70, square_pos[1] - 35)
+                    pygame.display.update()
+                    minus_count = 0
+                    oct_count = 0
 
             if event.key == pygame.K_o:
                 if oct_count == 0:
@@ -535,7 +566,6 @@ while True:
                     pygame.draw.line(screen, BLACK, (square_pos[0] + SQUARE_SIZE * 3 // 4, square_pos[1]),
                                      (square_pos[0] + SQUARE_SIZE * 3 // 4, square_pos[1] + SQUARE_SIZE - 2), 2)
                     pygame.display.update()
-                    minus_count = 0
 
             if event.key == pygame.K_BACKSPACE:
                 Current_color = WHITE
@@ -547,11 +577,13 @@ while True:
                                                    (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
                     minus_count = 0
                     oct_count = 0
+                    comma_count = 0
                 else:
                     pygame.draw.rect(screen, (255, 255, 255),
                                      (square_pos[0], square_pos[1], SQUARE_SIZE + 20, SQUARE_SIZE))
                     minus_count = 0
                     oct_count = 0
+                    comma_count = 0
 
             if event.key == pygame.K_RIGHT:
                 Current_color = WHITE
@@ -566,6 +598,7 @@ while True:
                         pygame.display.update()
                         minus_count = 0
                         oct_count = 0
+                        comma_count = 0
                     if screen.get_at((square_pos[0] - 65, square_pos[1] + 5)) != WHITE:
                         pygame.draw.rect(screen, BLACK,
                                          (square_pos[0] - 70, square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
@@ -575,6 +608,7 @@ while True:
                         pygame.display.update()
                         minus_count = 0
                         oct_count = 0
+                        comma_count = 0
 
             if event.key == pygame.K_LEFT:
                 Current_color = WHITE
@@ -589,6 +623,7 @@ while True:
                         pygame.display.update()
                         minus_count = 0
                         oct_count = 0
+                        comma_count = 0
                     if screen.get_at((square_pos[0] + 75, square_pos[1] + 5)) != WHITE:
                         pygame.draw.rect(screen, BLACK,
                                          (square_pos[0] + 70, square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
@@ -598,6 +633,7 @@ while True:
                         pygame.display.update()
                         minus_count = 0
                         oct_count = 0
+                        comma_count = 0
 
             if event.key == pygame.K_DOWN:
                 Current_color = WHITE
@@ -612,6 +648,7 @@ while True:
                         pygame.display.update()
                         minus_count = 0
                         oct_count = 0
+                        comma_count = 0
                     if screen.get_at((square_pos[0] + 5, square_pos[1] - 65)) != WHITE:
                         pygame.draw.rect(screen, BLACK,
                                          (square_pos[0], square_pos[1] - 70, SQUARE_SIZE, SQUARE_SIZE), 2)
@@ -621,6 +658,7 @@ while True:
                         pygame.display.update()
                         minus_count = 0
                         oct_count = 0
+                        comma_count = 0
 
             if event.key == pygame.K_UP:
                 Current_color = WHITE
@@ -635,6 +673,7 @@ while True:
                         pygame.display.update()
                         minus_count = 0
                         oct_count = 0
+                        comma_count = 0
                     if screen.get_at((square_pos[0] + 5, square_pos[1] + 75)) != WHITE:
                         pygame.draw.rect(screen, BLACK,
                                          (square_pos[0], square_pos[1] + 70, SQUARE_SIZE, SQUARE_SIZE), 2)
@@ -644,6 +683,7 @@ while True:
                         pygame.display.update()
                         minus_count = 0
                         oct_count = 0
+                        comma_count = 0
 
             if screen.get_at((square_pos[0] + 5, square_pos[1] + 5)) == RED:
                 do.play()
