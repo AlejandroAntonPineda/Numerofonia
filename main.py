@@ -1,17 +1,26 @@
 # importar e iniciar
 import pygame
+from pygame import mixer
 import sys
 
 print(sys.path)
 pygame.init()
+mixer.init()
 
+# Sonidos
+do = pygame.mixer.Sound('do.wav')
+re = pygame.mixer.Sound('re.wav')
+mi = pygame.mixer.Sound('mi.wav')
+fa = pygame.mixer.Sound('fa.wav')
+sol = pygame.mixer.Sound('sol.wav')
+la = pygame.mixer.Sound('la.wav')
+si = pygame.mixer.Sound('si.wav')
 # Pantalla
 screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 background = pygame.Surface(screen.get_size())
 background.fill((255, 255, 255))
 screen.blit(background, (0, 0))
 screen_size = screen.get_size()
-
 # Colores
 RED = (213, 0, 0)
 ORANGE = (245, 124, 0)
@@ -25,25 +34,18 @@ AZUL = (26, 35, 126)
 VIOLETA = (94, 53, 177)
 Magenta = (156, 39, 176)
 Purple = (224, 64, 251)
-
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
-Current_color = RED
+Current_color = WHITE
 ALL_COLORS = [RED, ORANGE, YELLOW, LIME, GREEN, ESMERALDA,
               CIAN, COBALTO, AZUL, VIOLETA, Magenta, Purple]
-
-# Definir sonidos
-
 # Definir variables del cuadrado cuadrado
 SQUARE_SIZE = 50
 square_pos = (screen_size[0] - 1340, 260)
 square_marg = pygame.draw.rect(screen, BLACK, pygame.Rect(square_pos, (SQUARE_SIZE, SQUARE_SIZE)), 2)
 LIG_SIZE = (20, 13)
 OCT_SIZE = 15
-
 square_positions = []
-
-
 # Fuentes
 font = pygame.font.Font(None, 45)
 font2 = pygame.font.Font(None, 40)
@@ -61,7 +63,6 @@ screen.blit(text4, text_pos4)
 text2 = font2.render("Instrucciones", True, BLACK)
 text_pos2 = screen_size[0] - 600, 50
 screen.blit(text2, text_pos2)
-
 # Instrucciones
 # 1 Color Rojo
 text2 = font2.render("1", True, BLACK)
@@ -159,7 +160,6 @@ text3 = font3.render("exit = esc", True, BLACK)
 text_pos3 = screen_size[0] - 380, 205
 screen.blit(text3, text_pos3)
 pygame.display.update()
-
 # triángulos
 vertices = (screen_size[0] - 700, 140), (screen_size[0] - 680, 140), (screen_size[0] - 690, 120)
 tri_up = pygame.draw.polygon(screen, BLACK, vertices)
@@ -173,18 +173,14 @@ pygame.draw.line(screen, BLACK, (screen_size[0] - 670, 160), (screen_size[0] - 6
 vertices = (screen_size[0] - 700, 180), (screen_size[0] - 680, 180), (screen_size[0] - 690, 200)
 tri_down = pygame.draw.polygon(screen, BLACK, vertices)
 pygame.draw.line(screen, BLACK, (screen_size[0] - 690, 180), (screen_size[0] - 690, 175), 4)
-
 # Parpadeo
 draw_outline = BLACK
 BLINK_INTERVAL = 1000
 BLINK_EVENT = pygame.USEREVENT + 1
 pygame.time.set_timer(BLINK_EVENT, BLINK_INTERVAL)
-
 # Contador
 minus_count = 0
 oct_count = 0
-
-
 # Definir límites arriba
 start_line_2 = screen_size[0] - 200, 320
 end_line_2 = screen_size[0] - 1400, 320
@@ -216,7 +212,6 @@ altura = abs(start_line_21[1] - start_line_31[1])
 ancho = abs(start_line_21[0] - end_line_21[0])
 rect_img = (ancho, altura)
 rect_surface = pygame.Surface(rect_img)
-
 
 while True:
     for event in pygame.event.get():
@@ -471,7 +466,7 @@ while True:
                 minus_count = 0
 
             if event.key == pygame.K_o:
-                if minus_count == 0:
+                if oct_count == 0:
                     pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
                     square_pos = (square_pos[0] + 17, square_pos[1] - 16)
                     pygame.draw.rect(screen, Current_color, pygame.Rect(square_pos, (OCT_SIZE, OCT_SIZE)))
@@ -479,7 +474,7 @@ while True:
                     pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], OCT_SIZE, OCT_SIZE), 2)
                     square_pos = (square_pos[0] - 17, square_pos[1] + 16)
                     pygame.display.update()
-                elif minus_count == 1:
+                elif oct_count == 1:
                     pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
                     square_pos = (square_pos[0] + 7, square_pos[1] - 16)
                     pygame.draw.rect(screen, Current_color, pygame.Rect(square_pos, (OCT_SIZE, OCT_SIZE)))
@@ -487,8 +482,8 @@ while True:
                     pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], OCT_SIZE, OCT_SIZE), 2)
                     square_pos = (square_pos[0] - 7, square_pos[1] + 16)
                     pygame.display.update()
-                    minus_count += 1
-                elif minus_count == 2:
+                    oct_count += 1
+                elif oct_count == 2:
                     pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
                     square_pos = (square_pos[0] + 30, square_pos[1] - 16)
                     pygame.draw.rect(screen, Current_color, pygame.Rect(square_pos, (OCT_SIZE, OCT_SIZE)))
@@ -496,8 +491,8 @@ while True:
                     pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], OCT_SIZE, OCT_SIZE), 2)
                     square_pos = (square_pos[0] - 30, square_pos[1] + 16)
                     pygame.display.update()
-                    minus_count += 1
-                elif minus_count == 3:
+                    oct_count += 1
+                elif oct_count == 3:
                     pygame.draw.rect(screen, BLACK, (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
                     square_pos = (square_pos[0] + 7, square_pos[1] - 16)
                     pygame.draw.rect(screen, WHITE, pygame.Rect(square_pos, (OCT_SIZE, OCT_SIZE)))
@@ -518,6 +513,7 @@ while True:
                                      (square_pos[0] + SQUARE_SIZE / 2, square_pos[1] + SQUARE_SIZE - 2), 2)
                     pygame.display.update()
                     minus_count += 1
+                    oct_count += 1
                 elif minus_count == 1:
                     pygame.draw.line(screen, Current_color, (square_pos[0] + SQUARE_SIZE / 2, square_pos[1] + 2),
                                      (square_pos[0] + SQUARE_SIZE / 2, square_pos[1] + SQUARE_SIZE - 3), 2)
@@ -542,6 +538,7 @@ while True:
                     minus_count = 0
 
             if event.key == pygame.K_BACKSPACE:
+                Current_color = WHITE
                 if pygame.Rect.colliderect(square_marg, rect_left):
                     pygame.draw.rect(screen, (255, 255, 255),
                                      (square_pos[0], square_pos[1] - 35, SQUARE_SIZE + 20, SQUARE_SIZE + 35))
@@ -549,12 +546,15 @@ while True:
                     square_marg = pygame.draw.rect(screen, draw_outline,
                                                    (square_pos[0], square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
                     minus_count = 0
+                    oct_count = 0
                 else:
                     pygame.draw.rect(screen, (255, 255, 255),
                                      (square_pos[0], square_pos[1], SQUARE_SIZE + 20, SQUARE_SIZE))
                     minus_count = 0
+                    oct_count = 0
 
             if event.key == pygame.K_RIGHT:
+                Current_color = WHITE
                 if pygame.Rect.colliderect(square_marg, rect_right):
                     square_pos = (square_pos[0] + 70, square_pos[1])
                     if screen.get_at((square_pos[0] - 65, square_pos[1] + 5)) == WHITE:
@@ -565,6 +565,7 @@ while True:
                         square_positions.append(square_pos)
                         pygame.display.update()
                         minus_count = 0
+                        oct_count = 0
                     if screen.get_at((square_pos[0] - 65, square_pos[1] + 5)) != WHITE:
                         pygame.draw.rect(screen, BLACK,
                                          (square_pos[0] - 70, square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
@@ -573,8 +574,10 @@ while True:
                         square_positions.append(square_pos)
                         pygame.display.update()
                         minus_count = 0
+                        oct_count = 0
 
             if event.key == pygame.K_LEFT:
+                Current_color = WHITE
                 if pygame.Rect.colliderect(square_marg, rect_left):
                     square_pos = (square_pos[0] - 70, square_pos[1])
                     if screen.get_at((square_pos[0] + 75, square_pos[1] + 5)) == WHITE:
@@ -585,6 +588,7 @@ while True:
                         square_positions.append(square_pos)
                         pygame.display.update()
                         minus_count = 0
+                        oct_count = 0
                     if screen.get_at((square_pos[0] + 75, square_pos[1] + 5)) != WHITE:
                         pygame.draw.rect(screen, BLACK,
                                          (square_pos[0] + 70, square_pos[1], SQUARE_SIZE, SQUARE_SIZE), 2)
@@ -593,8 +597,10 @@ while True:
                         square_positions.append(square_pos)
                         pygame.display.update()
                         minus_count = 0
+                        oct_count = 0
 
             if event.key == pygame.K_DOWN:
+                Current_color = WHITE
                 if pygame.Rect.colliderect(square_marg, rect_down):
                     square_pos = (square_pos[0], square_pos[1] + 70)
                     if screen.get_at((square_pos[0] + 5, square_pos[1] - 65)) == WHITE:
@@ -605,6 +611,7 @@ while True:
                         square_positions.append(square_pos)
                         pygame.display.update()
                         minus_count = 0
+                        oct_count = 0
                     if screen.get_at((square_pos[0] + 5, square_pos[1] - 65)) != WHITE:
                         pygame.draw.rect(screen, BLACK,
                                          (square_pos[0], square_pos[1] - 70, SQUARE_SIZE, SQUARE_SIZE), 2)
@@ -613,8 +620,10 @@ while True:
                         square_positions.append(square_pos)
                         pygame.display.update()
                         minus_count = 0
+                        oct_count = 0
 
             if event.key == pygame.K_UP:
+                Current_color = WHITE
                 if pygame.Rect.colliderect(square_marg, rect_up):
                     square_pos = (square_pos[0], square_pos[1] - 70)
                     if screen.get_at((square_pos[0] + 5, square_pos[1] + 75)) == WHITE:
@@ -625,6 +634,7 @@ while True:
                         square_positions.append(square_pos)
                         pygame.display.update()
                         minus_count = 0
+                        oct_count = 0
                     if screen.get_at((square_pos[0] + 5, square_pos[1] + 75)) != WHITE:
                         pygame.draw.rect(screen, BLACK,
                                          (square_pos[0], square_pos[1] + 70, SQUARE_SIZE, SQUARE_SIZE), 2)
@@ -633,6 +643,22 @@ while True:
                         square_positions.append(square_pos)
                         pygame.display.update()
                         minus_count = 0
+                        oct_count = 0
+
+            if screen.get_at((square_pos[0] + 5, square_pos[1] + 5)) == RED:
+                do.play()
+            if screen.get_at((square_pos[0] + 5, square_pos[1] + 5)) == YELLOW:
+                re.play()
+            if screen.get_at((square_pos[0] + 5, square_pos[1] + 5)) == GREEN:
+                mi.play()
+            if screen.get_at((square_pos[0] + 5, square_pos[1] + 5)) == ESMERALDA:
+                fa.play()
+            if screen.get_at((square_pos[0] + 5, square_pos[1] + 5)) == COBALTO:
+                sol.play()
+            if screen.get_at((square_pos[0] + 5, square_pos[1] + 5)) == VIOLETA:
+                la.play()
+            if screen.get_at((square_pos[0] + 5, square_pos[1] + 5)) == Purple:
+                si.play()
 
         elif event.type == BLINK_EVENT:
             draw_outline = WHITE if draw_outline == BLACK else BLACK
