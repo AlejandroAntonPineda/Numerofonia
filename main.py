@@ -3,18 +3,13 @@ import pygame
 from pygame import mixer
 import sys
 
+import sounds
+
 print(sys.path)
 pygame.init()
 mixer.init()
 
-# Sonidos
-do = pygame.mixer.Sound('do.wav')
-re = pygame.mixer.Sound('re.wav')
-mi = pygame.mixer.Sound('mi.wav')
-fa = pygame.mixer.Sound('fa.wav')
-sol = pygame.mixer.Sound('sol.wav')
-la = pygame.mixer.Sound('la.wav')
-si = pygame.mixer.Sound('si.wav')
+
 # Pantalla
 screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 background = pygame.Surface(screen.get_size())
@@ -686,19 +681,19 @@ while True:
                         comma_count = 0
 
             if screen.get_at((square_pos[0] + 5, square_pos[1] + 5)) == RED:
-                do.play()
+                sounds.do.play()
             if screen.get_at((square_pos[0] + 5, square_pos[1] + 5)) == YELLOW:
-                re.play()
+                sounds.re.play()
             if screen.get_at((square_pos[0] + 5, square_pos[1] + 5)) == GREEN:
-                mi.play()
+                sounds.mi.play()
             if screen.get_at((square_pos[0] + 5, square_pos[1] + 5)) == ESMERALDA:
-                fa.play()
+                sounds.fa.play()
             if screen.get_at((square_pos[0] + 5, square_pos[1] + 5)) == COBALTO:
-                sol.play()
+                sounds.sol.play()
             if screen.get_at((square_pos[0] + 5, square_pos[1] + 5)) == VIOLETA:
-                la.play()
+                sounds.la.play()
             if screen.get_at((square_pos[0] + 5, square_pos[1] + 5)) == Purple:
-                si.play()
+                sounds.si.play()
 
         elif event.type == BLINK_EVENT:
             draw_outline = WHITE if draw_outline == BLACK else BLACK
