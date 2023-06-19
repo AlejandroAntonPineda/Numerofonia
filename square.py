@@ -6,3 +6,4 @@ LIG_SIZE = (20, 13)
 LIG_SIZE_2 = (70, 13)
 OCT_SIZE = 15
 square_positions = []
+

@@ -4,7 +4,7 @@ import sys
 import colors
 import sounds
 import square
-
+import maquetado
 
 print(sys.path)
 pygame.init()
@@ -15,155 +15,59 @@ background = pygame.Surface(screen.get_size())
 background.fill((255, 255, 255))
 screen.blit(background, (0, 0))
 screen_size = screen.get_size()
+
 # Colores
 Current_color = colors.WHITE
+
 # Definir posiciones del cuadrado
 square_positions = []
 square_pos = (screen_size[0] - 1340, 260)
 square_marg = pygame.draw.rect(screen, colors.BLACK,
                                pygame.Rect(square_pos, (square.SQUARE_SIZE, square.SQUARE_SIZE)), 2)
-# Fuentes
-font = pygame.font.Font(None, 45)
-font2 = pygame.font.Font(None, 40)
-font3 = pygame.font.Font(None, 30)
-font4 = pygame.font.Font(None, 20)
+# cuenta
+minus_count = 0
+oct_count = 0
+comma_count = 0
+
 # Titulo
-text = font.render("NUMEROFONÍA DE ASCHERO", True, colors.BLACK)
-text_pos = (150, 100)
-screen.blit(text, text_pos)
+maquetado.title()
 # Subtítulo
-text4 = font4.render("Programa de Alejandro Anton Pineda", True, colors.BLACK)
-text_pos4 = (150, 150)
-screen.blit(text4, text_pos4)
+maquetado.subtitle()
 # Texto Instrucciones
-text2 = font2.render("Instrucciones", True, colors.BLACK)
-text_pos2 = screen_size[0] - 600, 50
-screen.blit(text2, text_pos2)
+maquetado.instrunctions()
 # Instrucciones
 # 1 Color Rojo
-text2 = font2.render("1", True, colors.BLACK)
-text_pos2 = screen_size[0] - 600, 100
-screen.blit(text2, text_pos2)
-pygame.draw.rect(screen, colors.RED,
-                 pygame.Rect(screen_size[0] - 580, 100, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2))
-pygame.draw.rect(screen, colors.BLACK,
-                 pygame.Rect(screen_size[0] - 580, 100, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
+maquetado.red_color()
 # 2 Color Naranja
-text2 = font2.render("2", True, colors.BLACK)
-text_pos2 = screen_size[0] - 530, 100
-screen.blit(text2, text_pos2)
-pygame.draw.rect(screen, colors.ORANGE,
-                 pygame.Rect(screen_size[0] - 510, 100, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2))
-pygame.draw.rect(screen, colors.BLACK,
-                 pygame.Rect(screen_size[0] - 510, 100, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
+maquetado.orange_color()
 # 3 Color Amarillo
-text2 = font2.render("3", True, colors.BLACK)
-text_pos2 = screen_size[0] - 460, 100
-screen.blit(text2, text_pos2)
-pygame.draw.rect(screen, colors.YELLOW,
-                 pygame.Rect(screen_size[0] - 440, 100, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2))
-pygame.draw.rect(screen, colors.BLACK,
-                 pygame.Rect(screen_size[0] - 440, 100, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
+maquetado.yellow_color()
 # 4 Color Lima
-text2 = font2.render("4", True, colors.BLACK)
-text_pos2 = screen_size[0] - 390, 100
-screen.blit(text2, text_pos2)
-pygame.draw.rect(screen, colors.LIME,
-                 pygame.Rect(screen_size[0] - 370, 100, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2))
-pygame.draw.rect(screen, colors.BLACK,
-                 pygame.Rect(screen_size[0] - 370, 100, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
+maquetado.lime_color()
 # 5 Color Verde
-text2 = font2.render("5", True, colors.BLACK)
-text_pos2 = screen_size[0] - 320, 100
-screen.blit(text2, text_pos2)
-pygame.draw.rect(screen, colors.GREEN,
-                 pygame.Rect(screen_size[0] - 300, 100, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2))
-pygame.draw.rect(screen, colors.BLACK,
-                 pygame.Rect(screen_size[0] - 300, 100, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
+maquetado.green_color()
 # 6 Color Esmeralda
-text2 = font2.render("6", True, colors.BLACK)
-text_pos2 = screen_size[0] - 250, 100
-screen.blit(text2, text_pos2)
-pygame.draw.rect(screen, colors.ESMERALD,
-                 pygame.Rect(screen_size[0] - 230, 100, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2))
-pygame.draw.rect(screen, colors.BLACK,
-                 pygame.Rect(screen_size[0] - 230, 100, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
+maquetado.esmerald_color()
 # 7 Color Cian
-text2 = font2.render("7", True, colors.BLACK)
-text_pos2 = screen_size[0] - 600, 150
-screen.blit(text2, text_pos2)
-pygame.draw.rect(screen, colors.CYAN,
-                 pygame.Rect(screen_size[0] - 580, 150, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2))
-pygame.draw.rect(screen, colors.BLACK,
-                 pygame.Rect(screen_size[0] - 580, 150, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
+maquetado.cyan_color()
 # 8 Color Cobalto
-text2 = font2.render("8", True, colors.BLACK)
-text_pos2 = screen_size[0] - 530, 150
-screen.blit(text2, text_pos2)
-pygame.draw.rect(screen, colors.COBALT,
-                 pygame.Rect(screen_size[0] - 510, 150, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2))
-pygame.draw.rect(screen, colors.BLACK,
-                 pygame.Rect(screen_size[0] - 510, 150, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
+maquetado.cobalt_color()
 # 9 Color Azul
-text2 = font2.render("9", True, colors.BLACK)
-text_pos2 = screen_size[0] - 460, 150
-screen.blit(text2, text_pos2)
-pygame.draw.rect(screen, colors.BLUE,
-                 pygame.Rect(screen_size[0] - 440, 150, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2))
-pygame.draw.rect(screen, colors.BLACK,
-                 pygame.Rect(screen_size[0] - 440, 150, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
+maquetado.blue_color()
 # q color Violeta
-text2 = font2.render("q", True, colors.BLACK)
-text_pos2 = screen_size[0] - 390, 150
-screen.blit(text2, text_pos2)
-pygame.draw.rect(screen, colors.VIOLET,
-                 pygame.Rect(screen_size[0] - 370, 150, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2))
-pygame.draw.rect(screen, colors.BLACK,
-                 pygame.Rect(screen_size[0] - 370, 150, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
+maquetado.violet_color()
 # w color Magenta
-text2 = font2.render("w", True, colors.BLACK)
-text_pos2 = screen_size[0] - 325, 150
-screen.blit(text2, text_pos2)
-pygame.draw.rect(screen, colors.MAGENTA,
-                 pygame.Rect(screen_size[0] - 300, 150, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2))
-pygame.draw.rect(screen, colors.BLACK,
-                 pygame.Rect(screen_size[0] - 300, 150, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
+maquetado.magenta_color()
 # e color purple
-text2 = font2.render("e", True, colors.BLACK)
-text_pos2 = screen_size[0] - 250, 150
-screen.blit(text2, text_pos2)
-pygame.draw.rect(screen, colors.PURPLE,
-                 pygame.Rect(screen_size[0] - 230, 150, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2))
-pygame.draw.rect(screen, colors.BLACK,
-                 pygame.Rect(screen_size[0] - 230, 150, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
+maquetado.purple_color()
 # . color negro - silencio
-text2 = font2.render(".", True, colors.BLACK)
-text_pos2 = screen_size[0] - 600, 195
-screen.blit(text2, text_pos2)
-pygame.draw.rect(screen, colors.BLACK,
-                 pygame.Rect(screen_size[0] - 580, 200, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2))
-pygame.draw.rect(screen, colors.BLACK,
-                 pygame.Rect(screen_size[0] - 580, 200, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
+
 # - linea divisoria
-text2 = font2.render("-", True, colors.BLACK)
-text_pos2 = screen_size[0] - 530, 200
-screen.blit(text2, text_pos2)
-start_line = screen_size[0] - 498, 200
-end_line = screen_size[0] - 498, 223
-pygame.draw.line(screen, colors.BLACK, start_line, end_line, 2)
-pygame.draw.rect(screen, colors.BLACK,
-                 pygame.Rect(screen_size[0] - 510, 200, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
+
 # , ligadura
-text2 = font2.render(",", True, colors.BLACK)
-text_pos2 = screen_size[0] - 460, 200
-screen.blit(text2, text_pos2)
-pygame.draw.rect(screen, colors.BLACK,
-                 pygame.Rect(screen_size[0] - 440, 215, square.LIG_SIZE[0], square.LIG_SIZE[1]), 2)
+
 # salir
-text3 = font3.render("exit = esc", True, colors.BLACK)
-text_pos3 = screen_size[0] - 380, 205
-screen.blit(text3, text_pos3)
-pygame.display.update()
+
 # triángulos
 vertices = (screen_size[0] - 700, 140), (screen_size[0] - 680, 140), (screen_size[0] - 690, 120)
 tri_up = pygame.draw.polygon(screen, colors.BLACK, vertices)
@@ -182,10 +86,6 @@ draw_outline = colors.BLACK
 BLINK_INTERVAL = 1000
 BLINK_EVENT = pygame.USEREVENT + 1
 pygame.time.set_timer(BLINK_EVENT, BLINK_INTERVAL)
-# Contador
-minus_count = 0
-oct_count = 0
-comma_count = 0
 # Definir límites arriba
 start_line_2 = screen_size[0] - 200, 320
 end_line_2 = screen_size[0] - 1400, 320
@@ -336,8 +236,10 @@ while True:
                     pygame.display.update()
                 if minus_count == 1:
                     square_pos = (square_pos[0] + 25, square_pos[1])
-                    pygame.draw.rect(screen, Current_color, pygame.Rect(square_pos, (square.SQUARE_SIZE / 2, square.SQUARE_SIZE)))
-                    pygame.draw.rect(screen, colors.BLACK, pygame.Rect(square_pos, (square.SQUARE_SIZE / 2, square.SQUARE_SIZE)), 2)
+                    pygame.draw.rect(screen, Current_color,
+                                     pygame.Rect(square_pos, (square.SQUARE_SIZE / 2, square.SQUARE_SIZE)))
+                    pygame.draw.rect(screen, colors.BLACK,
+                                     pygame.Rect(square_pos, (square.SQUARE_SIZE / 2, square.SQUARE_SIZE)), 2)
                     square_pos = (square_pos[0] - 25, square_pos[1])
                     square_positions.append(square_pos)
                     pygame.draw.line(screen, colors.BLACK, (square_pos[0] + square.SQUARE_SIZE / 2, square_pos[1]),
