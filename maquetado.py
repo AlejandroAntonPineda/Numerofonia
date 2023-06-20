@@ -4,6 +4,8 @@ import founts
 import screen
 import square
 
+
+
 pygame.init()
 
 
@@ -147,35 +149,97 @@ def purple_color():
 
 def black_color():
     text2 = founts.font2.render(".", True, colors.BLACK)
-    text_pos2 = screen_size[0] - 600, 195
-    screen.blit(text2, text_pos2)
-    pygame.draw.rect(screen, colors.BLACK,
-                     pygame.Rect(screen_size[0] - 580, 200, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2))
-    pygame.draw.rect(screen, colors.BLACK,
-                     pygame.Rect(screen_size[0] - 580, 200, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
+    text_pos2 = screen.screen_size[0] - 600, 195
+    screen.screen.blit(text2, text_pos2)
+    pygame.draw.rect(screen.screen, colors.BLACK,
+                     pygame.Rect(screen.screen_size[0] - 580, 200, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2))
+    pygame.draw.rect(screen.screen, colors.BLACK,
+                     pygame.Rect(screen.screen_size[0] - 580, 200, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
 
 
 def division_line():
     text2 = founts.font2.render("-", True, colors.BLACK)
-    text_pos2 = screen_size[0] - 530, 200
-    screen.blit(text2, text_pos2)
-    start_line = screen_size[0] - 498, 200
-    end_line = screen_size[0] - 498, 223
-    pygame.draw.line(screen, colors.BLACK, start_line, end_line, 2)
-    pygame.draw.rect(screen, colors.BLACK,
-                     pygame.Rect(screen_size[0] - 510, 200, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
+    text_pos2 = screen.screen_size[0] - 530, 200
+    screen.screen.blit(text2, text_pos2)
+    start_line = screen.screen_size[0] - 498, 200
+    end_line = screen.screen_size[0] - 498, 223
+    pygame.draw.line(screen.screen, colors.BLACK, start_line, end_line, 2)
+    pygame.draw.rect(screen.screen, colors.BLACK,
+                     pygame.Rect(screen.screen_size[0] - 510, 200, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
 
 
 def tie():
     text2 = founts.font2.render(",", True, colors.BLACK)
-    text_pos2 = screen_size[0] - 460, 200
-    screen.blit(text2, text_pos2)
-    pygame.draw.rect(screen, colors.BLACK,
-                     pygame.Rect(screen_size[0] - 440, 215, square.LIG_SIZE[0], square.LIG_SIZE[1]), 2)
+    text_pos2 = screen.screen_size[0] - 460, 200
+    screen.screen.blit(text2, text_pos2)
+    pygame.draw.rect(screen.screen, colors.BLACK,
+                     pygame.Rect(screen.screen_size[0] - 440, 215, square.LIG_SIZE[0], square.LIG_SIZE[1]), 2)
 
 
 def esc():
     text3 = founts.font3.render("exit = esc", True, colors.BLACK)
-    text_pos3 = screen_size[0] - 380, 205
-    screen.blit(text3, text_pos3)
+    text_pos3 = screen.screen_size[0] - 380, 205
+    screen.screen.blit(text3, text_pos3)
     pygame.display.update()
+
+
+def directions():
+    vertices = (screen.screen_size[0] - 700, 140), (screen.screen_size[0] - 680, 140), (screen.screen_size[0] - 690, 120)
+    tri_up = pygame.draw.polygon(screen.screen, colors.BLACK, vertices)
+    pygame.draw.line(screen.screen, colors.BLACK, (screen.screen_size[0] - 690, 140), (screen.screen_size[0] - 690, 145), 4)
+    vertices = (screen.screen_size[0] - 710, 150), (screen.screen_size[0] - 710, 170), (screen.screen_size[0] - 730, 160)
+    tri_left = pygame.draw.polygon(screen.screen, colors.BLACK, vertices)
+    pygame.draw.line(screen.screen, colors.BLACK, (screen.screen_size[0] - 710, 160), (screen.screen_size[0] - 705, 160), 4)
+    vertices = (screen.screen_size[0] - 670, 150), (screen.screen_size[0] - 670, 170), (screen.screen_size[0] - 650, 160)
+    tri_right = pygame.draw.polygon(screen.screen, colors.BLACK, vertices)
+    pygame.draw.line(screen.screen, colors.BLACK, (screen.screen_size[0] - 670, 160), (screen.screen_size[0] - 675, 160), 4)
+    vertices = (screen.screen_size[0] - 700, 180), (screen.screen_size[0] - 680, 180), (screen.screen_size[0] - 690, 200)
+    tri_down = pygame.draw.polygon(screen.screen, colors.BLACK, vertices)
+    pygame.draw.line(screen.screen, colors.BLACK, (screen.screen_size[0] - 690, 180), (screen.screen_size[0] - 690, 175), 4)
+
+
+def up_limits():
+    start_line_2 = (screen.screen_size[0] - 200, 320)
+    end_line_2 = (screen.screen_size[0] - 1400, 320)
+    start_line_3 = (screen.screen_size[0] - 200, 700)
+    rect_up = (end_line_2[0], end_line_2[1], start_line_2[0] - end_line_2[0], start_line_3[1] - start_line_2[1])
+    return rect_up
+
+
+rect_up = up_limits()
+
+
+def down_limits():
+    start_line_2 = (screen.screen_size[0] - 200, 200)
+    end_line_2 = (screen.screen_size[0] - 1400, 200)
+    start_line_3 = (screen.screen_size[0] - 200, 600)
+    rect_down = (end_line_2[0], end_line_2[1], start_line_2[0] - end_line_2[0], start_line_3[1] - start_line_2[1])
+    return rect_down
+
+
+rect_down = down_limits()
+
+
+def right_limits():
+    start_line_2 = (screen.screen_size[0] - 320, 200)
+    end_line_2 = (screen.screen_size[0] - 1400, 200)
+    start_line_3 = (screen.screen_size[0] - 320, 700)
+    rect_right = (end_line_2[0], end_line_2[1], start_line_2[0] - end_line_2[0], start_line_3[1] - start_line_2[1])
+    return rect_right
+
+
+rect_right = right_limits()
+
+
+def left_limits():
+    start_line_2 = (screen.screen_size[0] - 200, 200)
+    end_line_2 = (screen.screen_size[0] - 1260, 200)
+    start_line_3 = (screen.screen_size[0] - 200, 700)
+    rect_left = (end_line_2[0], end_line_2[1], start_line_2[0] - end_line_2[0], start_line_3[1] - start_line_2[1])
+    return rect_left
+
+
+rect_left = left_limits()
+
+
+
