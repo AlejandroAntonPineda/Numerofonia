@@ -3,11 +3,9 @@ import colors
 import founts
 import screen
 import square
-
-
+import sys
 
 pygame.init()
-
 
 def title():
     text = founts.font2.render("NUMEROFONÍA DE ASCHERO", True, colors.BLACK)
@@ -242,4 +240,30 @@ def left_limits():
 rect_left = left_limits()
 
 
+def visible_limits():
+    start_line_21 = screen.screen_size[0] - 200, 240
+    end_line_21 = screen.screen_size[0] - 1370, 240
+    start_line_31 = screen.screen_size[0] - 200, 700
+    rect = (end_line_21[0], end_line_21[1], start_line_21[0] - end_line_21[0], start_line_31[1] - start_line_21[1])
+    pygame.draw.rect(screen.screen, colors.BLACK, rect, 4)
+
+
+def screen_img():
+    start_line_21 = screen.screen_size[0] - 200, 240
+    end_line_21 = screen.screen_size[0] - 1370, 240
+    start_line_31 = screen.screen_size[0] - 200, 700
+    altura = abs(start_line_21[1] - start_line_31[1])
+    ancho = abs(start_line_21[0] - end_line_21[0])
+    rect_img = (ancho, altura)
+    rect_surface = pygame.Surface(rect_img)
+    return rect_surface, rect_img
+
+rect_surface = screen_img()
+rect_img = screen_img()
+
+def img_print():
+    rect_surface.blit(screen.screen, (0, 0), rect_img)
+    pygame.image.save(rect_surface, "captura_pantalla.png")
+    pygame.quit()
+    sys.exit()
 
