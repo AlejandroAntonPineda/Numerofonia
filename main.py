@@ -7,6 +7,7 @@ import screen
 import sounds
 import maquetado
 import blink
+import directions
 
 print(sys.path)
 pygame.init()
@@ -52,12 +53,8 @@ altura = abs(start_line_21[1] - start_line_31[1])
 ancho = abs(start_line_21[0] - end_line_21[0])
 rect_img = (ancho, altura)
 rect_surface = pygame.Surface(rect_img)
-
-# Parpadeo
-draw_outline = colors.BLACK
-BLINK_INTERVAL = 1000
-BLINK_EVENT = pygame.USEREVENT + 1
-pygame.time.set_timer(BLINK_EVENT, BLINK_INTERVAL)
+# parpadeo
+blink.blink()
 
 while True:
     for event in pygame.event.get():
@@ -138,21 +135,21 @@ while True:
 
             if event.key == pygame.K_RIGHT:
                 current_color = colors.WHITE
-                functions.right_movement()
+                directions.right_movement()
 
             if event.key == pygame.K_LEFT:
                 current_color = colors.WHITE
-                functions.left_movement()
+                directions.left_movement()
 
             if event.key == pygame.K_DOWN:
                 current_color = colors.WHITE
-                functions.down_movement()
+                directions.down_movement()
 
             if event.key == pygame.K_UP:
                 current_color = colors.WHITE
-                functions.up_movement()
+                directions.up_movement()
 
             sounds.sounds()
 
-        elif event.type == BLINK_EVENT:
+        elif event.type == blink.BLINK_EVENT:
             blink.blink()

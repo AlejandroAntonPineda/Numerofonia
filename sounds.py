@@ -7,13 +7,13 @@ import colors
 pygame.init()
 mixer.init()
 
-do = pygame.mixer.Sound('do.wav')
-re = pygame.mixer.Sound('re.wav')
-mi = pygame.mixer.Sound('mi.wav')
-fa = pygame.mixer.Sound('fa.wav')
-sol = pygame.mixer.Sound('sol.wav')
-la = pygame.mixer.Sound('la.wav')
-si = pygame.mixer.Sound('si.wav')
+do = pygame.mixer.Sound('sounds/do.wav')
+re = pygame.mixer.Sound('sounds/re.wav')
+mi = pygame.mixer.Sound('sounds/mi.wav')
+fa = pygame.mixer.Sound('sounds/fa.wav')
+sol = pygame.mixer.Sound('sounds/sol.wav')
+la = pygame.mixer.Sound('sounds/la.wav')
+si = pygame.mixer.Sound('sounds/si.wav')
 
 
 def sounds():
