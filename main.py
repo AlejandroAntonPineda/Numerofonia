@@ -43,16 +43,9 @@ maquetado.down_limits()
 maquetado.right_limits()
 maquetado.left_limits()
 # Definir límites visibles
-start_line_21 = screen.screen_size[0] - 200, 240
-end_line_21 = screen.screen_size[0] - 1370, 240
-start_line_31 = screen.screen_size[0] - 200, 700
-rect = (end_line_21[0], end_line_21[1], start_line_21[0] - end_line_21[0], start_line_31[1] - start_line_21[1])
-pygame.draw.rect(screen.screen, colors.BLACK, rect, 4)
+functions.visible_limits()
 # Surface
-altura = abs(start_line_21[1] - start_line_31[1])
-ancho = abs(start_line_21[0] - end_line_21[0])
-rect_img = (ancho, altura)
-rect_surface = pygame.Surface(rect_img)
+functions.saved_screen()
 # parpadeo
 blink.blink()
 
@@ -61,10 +54,7 @@ while True:
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
-                rect_surface.blit(screen.screen, (0, 0), rect)
-                pygame.image.save(rect_surface, "captura_pantalla.png")
-                pygame.quit()
-                sys.exit()
+                functions.save()
 
             if event.key == pygame.K_1:
                 colors.current_color = colors.RED
