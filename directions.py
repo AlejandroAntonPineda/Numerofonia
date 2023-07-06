@@ -6,6 +6,7 @@ import square
 import maquetado
 import blink
 
+
 def right_movement():
     if pygame.Rect.colliderect(square.square_marg, maquetado.rect_right):
         square.square_pos = (square.square_pos[0] + 70, square.square_pos[1])

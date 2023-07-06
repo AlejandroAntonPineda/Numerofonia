@@ -1,6 +1,7 @@
 # importar e iniciar
 import pygame
 import sys
+import os
 import colors
 import functions
 import screen
@@ -9,8 +10,12 @@ import maquetado
 import blink
 import directions
 
+
 print(sys.path)
 pygame.init()
+directorio_actual = os.getcwd()
+print("prev_positions.txt:", directorio_actual)
+clock = pygame.time.Clock()
 
 # pantalla principal
 screen.main_screen()
@@ -48,6 +53,7 @@ functions.visible_limits()
 functions.saved_screen()
 # parpadeo
 blink.blink()
+
 
 while True:
     for event in pygame.event.get():
@@ -104,7 +110,7 @@ while True:
                 functions.square_print()
 
             if event.key == pygame.K_PERIOD:
-                current_color = colors.BLACK
+                colors.current_color = colors.BLACK
                 functions.square_print()
 
             if event.key == pygame.K_0:
@@ -139,7 +145,20 @@ while True:
                 current_color = colors.WHITE
                 directions.up_movement()
 
+            # Repasar
+            if event.key == pygame.K_m:
+                pygame.display.iconify()
+
+            if event.key == pygame.K_f:
+                screen.main_screen()
+
             sounds.sounds()
 
         elif event.type == blink.BLINK_EVENT:
             blink.blink()
+
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            functions.square_mouse()
+
+        if event.type == pygame.MOUSEMOTION:
+            mouse_pos = pygame.mouse.get_pos()

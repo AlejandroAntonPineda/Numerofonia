@@ -7,6 +7,7 @@ import sys
 
 pygame.init()
 
+
 def title():
     text = founts.font2.render("NUMEROFONÍA DE ASCHERO", True, colors.BLACK)
     text_pos = (150, 100)
@@ -258,8 +259,10 @@ def screen_img():
     rect_surface = pygame.Surface(rect_img)
     return rect_surface, rect_img
 
+
 rect_surface = screen_img()
 rect_img = screen_img()
+
 
 def img_print():
     rect_surface.blit(screen.screen, (0, 0), rect_img)

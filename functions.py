@@ -52,6 +52,15 @@ def white_square():
         pygame.display.update()
 
 
+def square_mouse():
+    mouse_pos = pygame.mouse.get_pos()
+    square.square_pos = mouse_pos
+    pygame.draw.rect(screen.screen, colors.BLACK,
+                     (square.square_pos[0], square.square_pos[1], square.SQUARE_SIZE, square.SQUARE_SIZE), 2)
+    square.square_positions.append(square.square_pos)
+    pygame.display.update()
+
+
 def print_comma():
     if count.comma_count == 0:
         pygame.draw.rect(screen.screen, colors.BLACK,
@@ -203,7 +212,8 @@ def erase():
         count.comma_count = 0
     else:
         pygame.draw.rect(screen.screen, (255, 255, 255),
-                         (square.square_pos[0], square.square_pos[1], square.SQUARE_SIZE + 20, square.SQUARE_SIZE))
+                         (square.square_pos[0], square.square_pos[1] - 35,
+                          square.SQUARE_SIZE + 20, square.SQUARE_SIZE + 35))
         count.minus_count = 0
         count.oct_count = 0
         count.comma_count = 0
