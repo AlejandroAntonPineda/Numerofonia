@@ -67,51 +67,52 @@ while True:
                 save_load.save()
 
             if event.key == pygame.K_1:
+                functions.tresillo_red()
                 colors.current_color = colors.RED
                 functions.square_print()
 
             if event.key == pygame.K_2:
-                if count.minus_count == 2:
-                    connected_pixels = functions.draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
-                                                                       square.square_pos[1] + 5, colors.current_color)
+                functions.tresillo_orange()
                 colors.current_color = colors.ORANGE
-                for pixel in connected_pixels:
-                    new_color = colors.current_color
-                    x, y = pixel
-                    pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-
                 functions.square_print()
-                pygame.display.update()
 
             if event.key == pygame.K_3:
+                functions.tresillo_yellow()
                 colors.current_color = colors.YELLOW
                 functions.square_print()
 
             if event.key == pygame.K_4:
+                functions.tresillo_lime()
                 colors.current_color = colors.LIME
                 functions.square_print()
 
             if event.key == pygame.K_5:
+                functions.tresillo_green()
                 colors.current_color = colors.GREEN
                 functions.square_print()
 
             if event.key == pygame.K_6:
+                functions.tresillo_esmerald()
                 colors.current_color = colors.ESMERALD
                 functions.square_print()
 
             if event.key == pygame.K_7:
+                functions.tresillo_cyan()
                 colors.current_color = colors.CYAN
                 functions.square_print()
 
             if event.key == pygame.K_8:
+                functions.tresillo_cobalt()
                 colors.current_color = colors.COBALT
                 functions.square_print()
 
             if event.key == pygame.K_9:
+                functions.tresillo_blue()
                 colors.current_color = colors.BLUE
                 functions.square_print()
 
             if event.key == pygame.K_q:
+                functions.tresillo_violet()
                 colors.current_color = colors.VIOLET
                 functions.square_print()
 
@@ -167,9 +168,8 @@ while True:
         if event.type == pygame.MOUSEMOTION:
             mouse_pos = pygame.mouse.get_pos()
 
-        if count.minus_count == 2:
-            target_color = colors.current_color
-            connected_pixel_count = functions.count_connected_pixels(screen.screen, square.square_pos[0] + 20,
-                                                                     square.square_pos[1] + 5, target_color)
-            print("Cantidad de píxeles contiguos del mismo color:", connected_pixel_count)
-
+        # if count.minus_count == 2:
+        #     target_color = colors.current_color
+        #     connected_pixel_count = functions.count_connected_pixels(screen.screen, square.square_pos[0] + 20,
+        #                                                              square.square_pos[1] + 5, target_color)
+        #     print("Cantidad de píxeles contiguos del mismo color:", connected_pixel_count)

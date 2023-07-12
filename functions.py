@@ -31,15 +31,114 @@ def square_print():
                           square.square_pos[1] + square.SQUARE_SIZE - 2), 2)
         pygame.display.update()
 
+
+def tresillo_red():
     if count.minus_count == 2:
         connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
                                                  square.square_pos[1] + 5, colors.current_color)
-
         for pixel in connected_pixels:
-            new_color = colors.current_color
+            new_color = colors.RED
             x, y = pixel
             pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
+        pygame.display.update()
 
+
+def tresillo_orange():
+    if count.minus_count == 2:
+        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
+                                                 square.square_pos[1] + 5, colors.current_color)
+        for pixel in connected_pixels:
+            new_color = colors.ORANGE
+            x, y = pixel
+            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
+        pygame.display.update()
+
+
+def tresillo_yellow():
+    if count.minus_count == 2:
+        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
+                                                 square.square_pos[1] + 5, colors.current_color)
+        for pixel in connected_pixels:
+            new_color = colors.YELLOW
+            x, y = pixel
+            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
+        pygame.display.update()
+
+
+def tresillo_lime():
+    if count.minus_count == 2:
+        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
+                                                 square.square_pos[1] + 5, colors.current_color)
+        for pixel in connected_pixels:
+            new_color = colors.LIME
+            x, y = pixel
+            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
+        pygame.display.update()
+
+
+def tresillo_green():
+    if count.minus_count == 2:
+        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
+                                                 square.square_pos[1] + 5, colors.current_color)
+        for pixel in connected_pixels:
+            new_color = colors.GREEN
+            x, y = pixel
+            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
+        pygame.display.update()
+
+
+def tresillo_esmerald():
+    if count.minus_count == 2:
+        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
+                                                 square.square_pos[1] + 5, colors.current_color)
+        for pixel in connected_pixels:
+            new_color = colors.ESMERALD
+            x, y = pixel
+            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
+        pygame.display.update()
+
+
+def tresillo_cyan():
+    if count.minus_count == 2:
+        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
+                                                 square.square_pos[1] + 5, colors.current_color)
+        for pixel in connected_pixels:
+            new_color = colors.CYAN
+            x, y = pixel
+            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
+        pygame.display.update()
+
+
+def tresillo_cobalt():
+    if count.minus_count == 2:
+        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
+                                                 square.square_pos[1] + 5, colors.current_color)
+        for pixel in connected_pixels:
+            new_color = colors.COBALT
+            x, y = pixel
+            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
+        pygame.display.update()
+
+
+def tresillo_blue():
+    if count.minus_count == 2:
+        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
+                                                 square.square_pos[1] + 5, colors.current_color)
+        for pixel in connected_pixels:
+            new_color = colors.BLUE
+            x, y = pixel
+            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
+        pygame.display.update()
+
+
+def tresillo_violet():
+    if count.minus_count == 2:
+        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
+                                                 square.square_pos[1] + 5, colors.current_color)
+        for pixel in connected_pixels:
+            new_color = colors.VIOLET
+            x, y = pixel
+            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
         pygame.display.update()
 
 
@@ -264,23 +363,17 @@ def save():
 def count_connected_pixels(surface, x, y, target_color, visited=None):
     if visited is None:
         visited = set()
-
     width, height = surface.get_size()
-
     if not (0 <= x < width and 0 <= y < height):
         return 0
-
     if (x, y) in visited:
         return 0
-
     visited.add((x, y))
-
     if surface.get_at((x, y)) != target_color:
         return 0
-
     pixel_count = 1
-
     neighbors = [(x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)]
+
     for neighbor in neighbors:
         nx, ny = neighbor
         pixel_count += count_connected_pixels(surface, nx, ny, target_color, visited)
@@ -291,24 +384,18 @@ def count_connected_pixels(surface, x, y, target_color, visited=None):
 def draw_connected_pixels(surface, x, y, target_color, visited=None):
     if visited is None:
         visited = set()
-
     width, height = surface.get_size()
-
     if not (0 <= x < width and 0 <= y < height):
         return set()
-
     if (x, y) in visited:
         return set()
-
     visited.add((x, y))
-
     if surface.get_at((x, y)) != target_color:
         return set()
     visited.add((x, y))
-
     pixels = {(x, y)}
-
     neighbors = [(x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)]
+
     for neighbor in neighbors:
         nx, ny = neighbor
         pixels.update(draw_connected_pixels(surface, nx, ny, target_color, visited))
