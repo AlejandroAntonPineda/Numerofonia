@@ -71,8 +71,17 @@ while True:
                 functions.square_print()
 
             if event.key == pygame.K_2:
+                if count.minus_count == 2:
+                    connected_pixels = functions.draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
+                                                                       square.square_pos[1] + 5, colors.current_color)
                 colors.current_color = colors.ORANGE
+                for pixel in connected_pixels:
+                    new_color = colors.current_color
+                    x, y = pixel
+                    pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
+
                 functions.square_print()
+                pygame.display.update()
 
             if event.key == pygame.K_3:
                 colors.current_color = colors.YELLOW
@@ -163,7 +172,4 @@ while True:
             connected_pixel_count = functions.count_connected_pixels(screen.screen, square.square_pos[0] + 20,
                                                                      square.square_pos[1] + 5, target_color)
             print("Cantidad de píxeles contiguos del mismo color:", connected_pixel_count)
-
-
-
 

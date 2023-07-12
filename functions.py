@@ -36,9 +36,11 @@ def square_print():
                                                  square.square_pos[1] + 5, colors.current_color)
 
         for pixel in connected_pixels:
-            new_color = (255, 255, 255)
+            new_color = colors.current_color
             x, y = pixel
             pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
+
+        pygame.display.update()
 
 
 def white_square():
@@ -302,6 +304,7 @@ def draw_connected_pixels(surface, x, y, target_color, visited=None):
 
     if surface.get_at((x, y)) != target_color:
         return set()
+    visited.add((x, y))
 
     pixels = {(x, y)}
 
