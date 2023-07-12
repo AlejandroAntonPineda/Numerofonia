@@ -31,6 +31,15 @@ def square_print():
                           square.square_pos[1] + square.SQUARE_SIZE - 2), 2)
         pygame.display.update()
 
+    if count.minus_count == 2:
+        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
+                                                 square.square_pos[1] + 5, colors.current_color)
+
+        for pixel in connected_pixels:
+            new_color = (255, 255, 255)
+            x, y = pixel
+            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
+
 
 def white_square():
     if count.minus_count == 0:
@@ -248,3 +257,57 @@ def save():
     pygame.image.save(rect_surface, "captura_pantalla.png")
     pygame.quit()
     sys.exit()
+
+
+def count_connected_pixels(surface, x, y, target_color, visited=None):
+    if visited is None:
+        visited = set()
+
+    width, height = surface.get_size()
+
+    if not (0 <= x < width and 0 <= y < height):
+        return 0
+
+    if (x, y) in visited:
+        return 0
+
+    visited.add((x, y))
+
+    if surface.get_at((x, y)) != target_color:
+        return 0
+
+    pixel_count = 1
+
+    neighbors = [(x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)]
+    for neighbor in neighbors:
+        nx, ny = neighbor
+        pixel_count += count_connected_pixels(surface, nx, ny, target_color, visited)
+
+    return pixel_count
+
+
+def draw_connected_pixels(surface, x, y, target_color, visited=None):
+    if visited is None:
+        visited = set()
+
+    width, height = surface.get_size()
+
+    if not (0 <= x < width and 0 <= y < height):
+        return set()
+
+    if (x, y) in visited:
+        return set()
+
+    visited.add((x, y))
+
+    if surface.get_at((x, y)) != target_color:
+        return set()
+
+    pixels = {(x, y)}
+
+    neighbors = [(x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)]
+    for neighbor in neighbors:
+        nx, ny = neighbor
+        pixels.update(draw_connected_pixels(surface, nx, ny, target_color, visited))
+
+    return pixels
