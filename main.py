@@ -16,7 +16,7 @@ print(sys.path)
 pygame.init()
 directorio_actual = os.getcwd()
 print("prev_positions.txt:", directorio_actual)
-clock = pygame.time.Clock()
+
 
 # pantalla principal
 screen.main_screen()
@@ -154,7 +154,7 @@ while True:
 
             if event.key == pygame.K_BACKSPACE:
                 current_color = colors.WHITE
-                functions.erase()
+                directions.erase()
 
             if event.key == pygame.K_RIGHT:
                 current_color = colors.WHITE

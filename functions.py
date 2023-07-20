@@ -558,27 +558,6 @@ def division():
         pygame.display.update()
 
 
-def erase():
-    if pygame.Rect.colliderect(square.square_marg, maquetado.rect_left):
-        pygame.draw.rect(screen.screen, (255, 255, 255),
-                         (square.square_pos[0], square.square_pos[1] - 35,
-                          square.SQUARE_SIZE + 20, square.SQUARE_SIZE + 35))
-        square.square_pos = (square.square_pos[0] - 70, square.square_pos[1])
-        square.square_marg = pygame.draw.rect(screen.screen, blink.draw_outline,
-                                              (square.square_pos[0], square.square_pos[1],
-                                               square.SQUARE_SIZE, square.SQUARE_SIZE), 2)
-        count.minus_count = 0
-        count.oct_count = 0
-        count.comma_count = 0
-    else:
-        pygame.draw.rect(screen.screen, (255, 255, 255),
-                         (square.square_pos[0], square.square_pos[1] - 35,
-                          square.SQUARE_SIZE + 20, square.SQUARE_SIZE + 35))
-        count.minus_count = 0
-        count.oct_count = 0
-        count.comma_count = 0
-
-
 def visible_limits():
     start_line_21 = screen.screen_size[0] - 200, 240
     end_line_21 = screen.screen_size[0] - 1370, 240
