@@ -10,8 +10,6 @@ import sounds
 import maquetado
 import blink
 import directions
-import count
-import square
 
 
 print(sys.path)
@@ -117,16 +115,30 @@ while True:
                 functions.square_print()
 
             if event.key == pygame.K_w:
+                functions.tresillo_magenta()
                 colors.current_color = colors.MAGENTA
                 functions.square_print()
 
             if event.key == pygame.K_e:
+                functions.tresillo_purple()
                 colors.current_color = colors.PURPLE
                 functions.square_print()
 
             if event.key == pygame.K_PERIOD:
                 colors.current_color = colors.BLACK
                 functions.square_print()
+
+            # capoeira berimbao
+            if event.key == pygame.K_a:
+                colors.current_color = colors.BROWN
+                functions.square_print()
+            if event.key == pygame.K_s:
+                colors.current_color = colors.COBALT
+                functions.square_print()
+            if event.key == pygame.K_d:
+                colors.current_color = colors.GREEN
+                functions.square_print()
+            # capoeira berimbao
 
             if event.key == pygame.K_0:
                 functions.white_square()
