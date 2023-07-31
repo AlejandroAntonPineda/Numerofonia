@@ -286,50 +286,6 @@ def visible_limits():
     pygame.draw.rect(screen.screen, colors.BLACK, rect, 4)
 
 
-def saved_screen():
-    start_line_21 = screen.screen_size[0] - 200, 240
-    end_line_21 = screen.screen_size[0] - 1370, 240
-    start_line_31 = screen.screen_size[0] - 200, 700
-    rect = (end_line_21[0], end_line_21[1], start_line_21[0] - end_line_21[0], start_line_31[1] - start_line_21[1])
-    pygame.draw.rect(screen.screen, colors.BLACK, rect, 4)
-    altura = abs(start_line_21[1] - start_line_31[1])
-    ancho = abs(start_line_21[0] - end_line_21[0])
-    rect_img = (ancho, altura)
-    rect_surface = pygame.Surface(rect_img)
-    return rect_surface, rect
-
-
-rect_surface, rect = saved_screen()
-
-
-def save():
-    rect_surface.blit(screen.screen, (0, 0), rect)
-    pygame.image.save(rect_surface, "captura_pantalla.png")
-    pygame.quit()
-    sys.exit()
-
-
-# def count_connected_pixels(surface, x, y, target_color, visited=None):
-#     if visited is None:
-#         visited = set()
-#     width, height = surface.get_size()
-#     if not (0 <= x < width and 0 <= y < height):
-#         return 0
-#     if (x, y) in visited:
-#         return 0
-#     visited.add((x, y))
-#     if surface.get_at((x, y)) != target_color:
-#         return 0
-#     pixel_count = 1
-#     neighbors = [(x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)]
-#
-#     for neighbor in neighbors:
-#         nx, ny = neighbor
-#         pixel_count += count_connected_pixels(surface, nx, ny, target_color, visited)
-#
-#     return pixel_count
-
-
 def draw_connected_pixels(surface, x, y, target_color, visited=None):
     if visited is None:
         visited = set()

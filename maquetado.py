@@ -175,9 +175,19 @@ def tie():
                      pygame.Rect(screen.screen_size[0] - 440, 215, square.LIG_SIZE[0], square.LIG_SIZE[1]), 2)
 
 
+def octave():
+    text2 = founts.font2.render("o", True, colors.BLACK)
+    text_pos2 = screen.screen_size[0] - 390, 200
+    screen.screen.blit(text2, text_pos2)
+    pygame.draw.rect(screen.screen, colors.BLACK,
+                     pygame.Rect(screen.screen_size[0] - 370, 200, square.SQUARE_SIZE / 2, square.SQUARE_SIZE / 2), 2)
+    pygame.draw.rect(screen.screen, colors.BLACK,
+                     pygame.Rect(screen.screen_size[0] - 364, 187, square.SQUARE_SIZE / 4, square.SQUARE_SIZE / 4), 2)
+
+
 def esc():
     text3 = founts.font3.render("exit = esc", True, colors.BLACK)
-    text_pos3 = screen.screen_size[0] - 380, 205
+    text_pos3 = screen.screen_size[0] - 300, 205
     screen.screen.blit(text3, text_pos3)
     pygame.display.update()
 
@@ -249,24 +259,24 @@ def visible_limits():
     pygame.draw.rect(screen.screen, colors.BLACK, rect, 4)
 
 
-def screen_img():
+def saved_screen():
     start_line_21 = screen.screen_size[0] - 200, 240
     end_line_21 = screen.screen_size[0] - 1370, 240
     start_line_31 = screen.screen_size[0] - 200, 700
+    rect = (end_line_21[0], end_line_21[1], start_line_21[0] - end_line_21[0], start_line_31[1] - start_line_21[1])
+    pygame.draw.rect(screen.screen, colors.BLACK, rect, 4)
     altura = abs(start_line_21[1] - start_line_31[1])
     ancho = abs(start_line_21[0] - end_line_21[0])
     rect_img = (ancho, altura)
     rect_surface = pygame.Surface(rect_img)
-    return rect_surface, rect_img
+    return rect_surface, rect
 
 
-rect_surface = screen_img()
-rect_img = screen_img()
+rect_surface, rect = saved_screen()
 
 
-def img_print():
-    rect_surface.blit(screen.screen, (0, 0), rect_img)
+def save():
+    rect_surface.blit(screen.screen, (0, 0), rect)
     pygame.image.save(rect_surface, "captura_pantalla.png")
     pygame.quit()
     sys.exit()
-

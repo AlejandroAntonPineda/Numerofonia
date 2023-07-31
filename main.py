@@ -39,6 +39,7 @@ maquetado.purple_color()
 maquetado.black_color()
 maquetado.division_line()
 maquetado.tie()
+maquetado.octave()
 maquetado.esc()
 maquetado.directions()
 # limites
@@ -47,9 +48,9 @@ maquetado.down_limits()
 maquetado.right_limits()
 maquetado.left_limits()
 # Definir límites visibles
-functions.visible_limits()
+maquetado.visible_limits()
 # Surface
-functions.saved_screen()
+maquetado.saved_screen()
 # parpadeo
 blink.blink()
 
@@ -59,7 +60,7 @@ while True:
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
-                functions.save()
+                maquetado.save()
 
             if event.key == pygame.K_1:
                 colors.current_color = colors.RED
