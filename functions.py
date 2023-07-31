@@ -30,20 +30,21 @@ def square_print():
         pygame.display.update()
 
 
-def tresillo_red():
+def tresillo():
+    color_pixel = colors.obtener_color_pixel(screen, square.square_pos[0] + 20, square.square_pos[1] + 5)
     if count.minus_count == 2 and count.tresillo_count == 0:
         connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
-                                                 square.square_pos[1] + 5, colors.current_color)
+                                                 square.square_pos[1] + 5, color_pixel)
         for pixel in connected_pixels:
-            new_color = colors.RED
+            new_color = colors.current_color
             x, y = pixel
             pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
         pygame.display.update()
 
         connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
+                                                 square.square_pos[1] + 5, color_pixel)
         for pixel in connected_pixels:
-            new_color = colors.RED
+            new_color = colors.current_color
             x, y = pixel
             pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
         pygame.display.update()
@@ -52,36 +53,37 @@ def tresillo_red():
 
     elif count.tresillo_count == 1:
         connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
+                                                 square.square_pos[1] + 5, color_pixel)
         for pixel in connected_pixels:
-            new_color = colors.RED
+            new_color = colors.current_color
             x, y = pixel
             pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
         pygame.display.update()
 
 
-def semicorchea_red():
+def semicorchea():
+    color_pixel = colors.obtener_color_pixel(screen, square.square_pos[0] + 15, square.square_pos[1] + 5)
     if count.minus_count == 3 and count.semicorchea_count == 0:
         connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 15,
-                                                 square.square_pos[1] + 5, colors.current_color)
+                                                 square.square_pos[1] + 5, color_pixel)
         for pixel in connected_pixels:
-            new_color = colors.RED
+            new_color = colors.current_color
             x, y = pixel
             pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
         pygame.display.update()
 
         connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 28,
-                                                 square.square_pos[1] + 5, colors.current_color)
+                                                 square.square_pos[1] + 5, color_pixel)
         for pixel in connected_pixels:
-            new_color = colors.RED
+            new_color = colors.current_color
             x, y = pixel
             pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
         pygame.display.update()
 
         connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
+                                                 square.square_pos[1] + 5, color_pixel)
         for pixel in connected_pixels:
-            new_color = colors.RED
+            new_color = colors.current_color
             x, y = pixel
             pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
         pygame.display.update()
@@ -90,17 +92,17 @@ def semicorchea_red():
 
     elif count.semicorchea_count == 1:
         connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 28,
-                                                 square.square_pos[1] + 5, colors.current_color)
+                                                 square.square_pos[1] + 5, color_pixel)
         for pixel in connected_pixels:
-            new_color = colors.RED
+            new_color = colors.current_color
             x, y = pixel
             pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
         pygame.display.update()
 
         connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
+                                                 square.square_pos[1] + 5, color_pixel)
         for pixel in connected_pixels:
-            new_color = colors.RED
+            new_color = colors.current_color
             x, y = pixel
             pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
         pygame.display.update()
@@ -108,569 +110,11 @@ def semicorchea_red():
         count.semicorchea_count += 1
 
     elif count.semicorchea_count == 2:
+        color_pixel = colors.obtener_color_pixel(screen, square.square_pos[0] + 40, square.square_pos[1] + 5)
         connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
+                                                 square.square_pos[1] + 5, color_pixel)
         for pixel in connected_pixels:
-            new_color = colors.RED
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-
-def tresillo_orange():
-    if count.minus_count == 2 and count.tresillo_count == 0:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.ORANGE
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.ORANGE
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.tresillo_count += 1
-
-    elif count.tresillo_count == 1:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.ORANGE
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-
-def semicorchea_orange():
-    if count.minus_count == 3 and count.semicorchea_count == 0:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 15,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.ORANGE
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 28,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.ORANGE
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.ORANGE
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.semicorchea_count += 1
-
-    elif count.semicorchea_count == 1:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 28,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.ORANGE
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.ORANGE
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-    elif count.semicorchea_count == 2:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.ORANGE
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.semicorchea_count += 1
-
-
-def tresillo_yellow():
-    if count.minus_count == 2 and count.tresillo_count == 0:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.YELLOW
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.YELLOW
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.tresillo_count += 1
-
-    elif count.tresillo_count == 1:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.YELLOW
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-
-def semicorchea_yellow():
-    if count.minus_count == 3 and count.semicorchea_count == 0:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 15,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.YELLOW
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 28,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.YELLOW
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.YELLOW
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.semicorchea_count += 1
-
-    elif count.semicorchea_count == 1:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 28,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.YELLOW
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.YELLOW
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-    elif count.semicorchea_count == 2:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.YELLOW
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.semicorchea_count += 1
-
-
-def tresillo_lime():
-    if count.minus_count == 2 and count.tresillo_count == 0:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.LIME
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.LIME
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.tresillo_count += 1
-
-    elif count.tresillo_count == 1:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.LIME
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-
-def semicorchea_lime():
-    if count.minus_count == 3 and count.semicorchea_count == 0:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 15,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.LIME
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 28,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.LIME
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.LIME
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.semicorchea_count += 1
-
-    elif count.semicorchea_count == 1:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 28,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.LIME
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.LIME
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-    elif count.semicorchea_count == 2:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.LIME
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.semicorchea_count += 1
-
-
-def tresillo_green():
-    if count.minus_count == 2 and count.tresillo_count == 0:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.GREEN
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.GREEN
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.tresillo_count += 1
-
-    elif count.tresillo_count == 1:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.GREEN
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-
-def semicorchea_green():
-    if count.minus_count == 3 and count.semicorchea_count == 0:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 15,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.GREEN
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 28,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.GREEN
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.GREEN
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.semicorchea_count += 1
-
-    elif count.semicorchea_count == 1:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 28,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.GREEN
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.GREEN
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-    elif count.semicorchea_count == 2:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.GREEN
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.semicorchea_count += 1
-
-
-def tresillo_esmerald():
-    if count.minus_count == 2 and count.tresillo_count == 0:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.ESMERALD
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.ESMERALD
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.tresillo_count += 1
-
-    elif count.tresillo_count == 1:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.ESMERALD
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-
-
-def tresillo_cyan():
-    if count.minus_count == 2 and count.tresillo_count == 0:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.CYAN
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.CYAN
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.tresillo_count += 1
-
-    elif count.tresillo_count == 1:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.CYAN
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-
-def tresillo_cobalt():
-    if count.minus_count == 2 and count.tresillo_count == 0:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.COBALT
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.COBALT
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.tresillo_count += 1
-
-    elif count.tresillo_count == 1:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.COBALT
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-
-def tresillo_blue():
-    if count.minus_count == 2 and count.tresillo_count == 0:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.BLUE
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.BLUE
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.tresillo_count += 1
-
-    elif count.tresillo_count == 1:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.BLUE
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-
-def tresillo_violet():
-    if count.minus_count == 2 and count.tresillo_count == 0:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.VIOLET
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.VIOLET
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.tresillo_count += 1
-
-    elif count.tresillo_count == 1:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.VIOLET
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-
-def tresillo_magenta():
-    if count.minus_count == 2 and count.tresillo_count == 0:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.MAGENTA
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.MAGENTA
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.tresillo_count += 1
-
-    elif count.tresillo_count == 1:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.MAGENTA
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-
-def tresillo_purple():
-    if count.minus_count == 2 and count.tresillo_count == 0:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 20,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.PURPLE
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.PURPLE
-            x, y = pixel
-            pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
-        pygame.display.update()
-
-        count.tresillo_count += 1
-
-    elif count.tresillo_count == 1:
-        connected_pixels = draw_connected_pixels(screen.screen, square.square_pos[0] + 40,
-                                                 square.square_pos[1] + 5, colors.current_color)
-        for pixel in connected_pixels:
-            new_color = colors.PURPLE
+            new_color = colors.current_color
             x, y = pixel
             pygame.draw.rect(screen.screen, new_color, pygame.Rect(x, y, 1, 1))
         pygame.display.update()
@@ -694,15 +138,6 @@ def white_square():
                           square.square_pos[1] + square.SQUARE_SIZE - 2), 2)
         square.square_pos = (square.square_pos[0] + 70, square.square_pos[1])
         pygame.display.update()
-
-
-def square_mouse():
-    mouse_pos = pygame.mouse.get_pos()
-    square.square_pos = mouse_pos
-    pygame.draw.rect(screen.screen, colors.BLACK,
-                     (square.square_pos[0], square.square_pos[1], square.SQUARE_SIZE, square.SQUARE_SIZE), 2)
-    square.square_positions.append(square.square_pos)
-    pygame.display.update()
 
 
 def print_comma():

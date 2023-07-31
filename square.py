@@ -1,6 +1,6 @@
 import screen
 import pygame
-import colors
+
 
 pygame.init()
 
@@ -10,5 +10,5 @@ LIG_SIZE_2 = (70, 13)
 OCT_SIZE = 15
 square_pos = (screen.screen_size[0] - 1340, 260)
 square_positions = []
-square_marg = pygame.draw.rect(screen.screen, colors.BLACK,
+square_marg = pygame.draw.rect(screen.screen, (0, 0, 0),
                                pygame.Rect(square_pos, (SQUARE_SIZE, SQUARE_SIZE)), 2)

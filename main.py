@@ -10,7 +10,6 @@ import maquetado
 import blink
 import directions
 
-
 print(sys.path)
 pygame.init()
 directorio_actual = os.getcwd()
@@ -63,65 +62,75 @@ while True:
                 functions.save()
 
             if event.key == pygame.K_1:
-                functions.tresillo_red()
-                functions.semicorchea_red()
                 colors.current_color = colors.RED
+                functions.semicorchea()
+                functions.tresillo()
                 functions.square_print()
 
             if event.key == pygame.K_2:
-                functions.tresillo_orange()
-                functions.semicorchea_orange()
                 colors.current_color = colors.ORANGE
+                functions.semicorchea()
+                functions.tresillo()
                 functions.square_print()
 
             if event.key == pygame.K_3:
-                functions.tresillo_yellow()
                 colors.current_color = colors.YELLOW
+                functions.semicorchea()
+                functions.tresillo()
                 functions.square_print()
 
             if event.key == pygame.K_4:
-                functions.tresillo_lime()
                 colors.current_color = colors.LIME
+                functions.semicorchea()
+                functions.tresillo()
                 functions.square_print()
 
             if event.key == pygame.K_5:
-                functions.tresillo_green()
                 colors.current_color = colors.GREEN
+                functions.semicorchea()
+                functions.tresillo()
                 functions.square_print()
 
             if event.key == pygame.K_6:
-                functions.tresillo_esmerald()
                 colors.current_color = colors.ESMERALD
+                functions.semicorchea()
+                functions.tresillo()
                 functions.square_print()
 
             if event.key == pygame.K_7:
-                functions.tresillo_cyan()
                 colors.current_color = colors.CYAN
+                functions.semicorchea()
+                functions.tresillo()
                 functions.square_print()
 
             if event.key == pygame.K_8:
-                functions.tresillo_cobalt()
                 colors.current_color = colors.COBALT
+                functions.semicorchea()
+                functions.tresillo()
                 functions.square_print()
 
             if event.key == pygame.K_9:
-                functions.tresillo_blue()
                 colors.current_color = colors.BLUE
+                functions.semicorchea()
+                functions.tresillo()
                 functions.square_print()
 
             if event.key == pygame.K_q:
-                functions.tresillo_violet()
                 colors.current_color = colors.VIOLET
+                functions.semicorchea()
+                functions.tresillo()
                 functions.square_print()
 
             if event.key == pygame.K_w:
-                functions.tresillo_magenta()
                 colors.current_color = colors.MAGENTA
+                functions.semicorchea()
+                functions.tresillo()
                 functions.square_print()
 
             if event.key == pygame.K_e:
-                functions.tresillo_purple()
                 colors.current_color = colors.PURPLE
+                functions.semicorchea()
+                functions.tresillo()
                 functions.square_print()
 
             if event.key == pygame.K_PERIOD:

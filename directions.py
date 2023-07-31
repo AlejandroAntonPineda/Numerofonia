@@ -162,3 +162,13 @@ def erase():
         count.comma_count = 0
         count.tresillo_count = 0
         count.semicorchea_count = 0
+
+
+# def square_mouse():
+#     mouse_pos = pygame.mouse.get_pos()
+#     square.square_pos = mouse_pos
+#     pygame.draw.rect(screen.screen, colors.BLACK,
+#                      (square.square_pos[0], square.square_pos[1], square.SQUARE_SIZE, square.SQUARE_SIZE), 2)
+#     square.square_positions.append(square.square_pos)
+#     pygame.display.update()
+
