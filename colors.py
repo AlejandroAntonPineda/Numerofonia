@@ -1,3 +1,8 @@
+import pygame
+
+
+pygame.init()
+
 # Colores
 RED = (213, 0, 0)
 ORANGE = (245, 124, 0)
@@ -16,8 +21,15 @@ BLACK = (0, 0, 0)
 BROWN = (101, 67, 33)
 current_color = WHITE
 
-ALL_COLORS = [RED, ORANGE, YELLOW, LIME, GREEN, ESMERALD,
+all_colors = [RED, ORANGE, YELLOW, LIME, GREEN, ESMERALD,
               CYAN, COBALT, BLUE, VIOLET, MAGENTA, PURPLE]
+
+
+def obtener_color_pixel(screen, x, y):
+    # Obtener el color del píxel en las coordenadas (x, y) de la superficie "screen"
+    color = screen.screen.get_at((x, y))
+
+    return color
 
 
 # value = 0

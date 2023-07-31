@@ -4,7 +4,6 @@ import sys
 import os
 import colors
 import functions
-import save_load
 import screen
 import sounds
 import maquetado
@@ -62,15 +61,16 @@ while True:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 functions.save()
-                save_load.save()
 
             if event.key == pygame.K_1:
                 functions.tresillo_red()
+                functions.semicorchea_red()
                 colors.current_color = colors.RED
                 functions.square_print()
 
             if event.key == pygame.K_2:
                 functions.tresillo_orange()
+                functions.semicorchea_orange()
                 colors.current_color = colors.ORANGE
                 functions.square_print()
 
