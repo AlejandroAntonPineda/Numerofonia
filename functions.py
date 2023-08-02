@@ -1,5 +1,4 @@
 import pygame
-import sys
 import screen
 import count
 import colors
@@ -28,6 +27,12 @@ def square_print():
                          (square.square_pos[0] + square.SQUARE_SIZE / 2,
                           square.square_pos[1] + square.SQUARE_SIZE - 2), 2)
         pygame.display.update()
+    if count.minus_count == 2:
+        if screen.screen.get_at((square.square_pos[0] + 10, square.square_pos[1] + 10)) == colors.current_color:
+            pygame.draw.rect(screen.screen, colors.current_color, pygame.Rect
+                             (square.square_pos, square.SQUARE_TRES))
+            square.square_positions.append(square.square_pos)
+            pygame.display.update()
 
 
 def tresillo():
