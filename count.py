@@ -3,3 +3,4 @@ oct_count = 0
 comma_count = 0
 tresillo_count = 0
 semicorchea_count = 0
+square_count = 0

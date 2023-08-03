@@ -33,6 +33,23 @@ def square_print():
                              (square.square_pos, square.SQUARE_TRES))
             square.square_positions.append(square.square_pos)
             pygame.display.update()
+    if count.minus_count == 3:
+        if screen.screen.get_at((square.square_pos[0] + 10, square.square_pos[1] + 10)) == colors.current_color\
+                and count.square_count == 0:
+            pygame.draw.rect(screen.screen, colors.current_color, pygame.Rect(square.square_pos, square.SQUARE_TRES))
+            square.square_positions.append(square.square_pos)
+            pygame.display.update()
+            count.square_count += 1
+        # mirar como hacerlo independiente de la funcion semicorchea.
+        elif count.square_count == 1:
+            color_pixel = colors.obtener_color_pixel(screen, square.square_pos[0] + 15, square.square_pos[1] + 5)
+            color_pixel_2 = colors.obtener_color_pixel(screen, square.square_pos[0] + 40, square.square_pos[1] + 5)
+            if color_pixel == color_pixel_2:
+                pygame.draw.rect(screen.screen, colors.current_color, pygame.Rect
+                                 (square.square_pos, square.SQUARE_SEMI))
+                square.square_positions.append(square.square_pos)
+                pygame.display.update()
+                count.square_count += 1
 
 
 def tresillo():

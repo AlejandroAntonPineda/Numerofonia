@@ -24,6 +24,7 @@ def right_movement():
             count.comma_count = 0
             count.tresillo_count = 0
             count.semicorchea_count = 0
+            count.square_count = 0
         if screen.screen.get_at((square.square_pos[0] - 65, square.square_pos[1] + 5)) != colors.WHITE:
             pygame.draw.rect(screen.screen, colors.BLACK,
                              (square.square_pos[0] - 70, square.square_pos[1], square.SQUARE_SIZE, square.SQUARE_SIZE),
@@ -38,6 +39,7 @@ def right_movement():
             count.comma_count = 0
             count.tresillo_count = 0
             count.semicorchea_count = 0
+            count.square_count = 0
 
 
 def left_movement():
@@ -57,6 +59,7 @@ def left_movement():
             count.comma_count = 0
             count.tresillo_count = 0
             count.semicorchea_count = 0
+            count.square_count = 0
         if screen.screen.get_at((square.square_pos[0] + 75, square.square_pos[1] + 5)) != colors.WHITE:
             pygame.draw.rect(screen.screen, colors.BLACK,
                              (square.square_pos[0] + 70, square.square_pos[1],
@@ -71,6 +74,7 @@ def left_movement():
             count.comma_count = 0
             count.tresillo_count = 0
             count.semicorchea_count = 0
+            count.square_count = 0
 
 
 def down_movement():
@@ -90,6 +94,7 @@ def down_movement():
             count.comma_count = 0
             count.tresillo_count = 0
             count.semicorchea_count = 0
+            count.square_count = 0
         if screen.screen.get_at((square.square_pos[0] + 5, square.square_pos[1] - 65)) != colors.WHITE:
             pygame.draw.rect(screen.screen, colors.BLACK,
                              (square.square_pos[0], square.square_pos[1] - 70,
@@ -104,6 +109,7 @@ def down_movement():
             count.comma_count = 0
             count.tresillo_count = 0
             count.semicorchea_count = 0
+            count.square_count = 0
 
 
 def up_movement():
@@ -123,6 +129,7 @@ def up_movement():
             count.comma_count = 0
             count.tresillo_count = 0
             count.semicorchea_count = 0
+            count.square_count = 0
         if screen.screen.get_at((square.square_pos[0] + 5, square.square_pos[1] + 75)) != colors.WHITE:
             pygame.draw.rect(screen.screen, colors.BLACK,
                              (square.square_pos[0], square.square_pos[1] + 70,
@@ -137,6 +144,7 @@ def up_movement():
             count.comma_count = 0
             count.tresillo_count = 0
             count.semicorchea_count = 0
+            count.square_count = 0
 
 
 def erase():
@@ -153,6 +161,7 @@ def erase():
         count.comma_count = 0
         count.tresillo_count = 0
         count.semicorchea_count = 0
+        count.square_count = 0
     else:
         pygame.draw.rect(screen.screen, (255, 255, 255),
                          (square.square_pos[0], square.square_pos[1] - 35,
@@ -162,6 +171,7 @@ def erase():
         count.comma_count = 0
         count.tresillo_count = 0
         count.semicorchea_count = 0
+        count.square_count = 0
 
 
 # def square_mouse():
